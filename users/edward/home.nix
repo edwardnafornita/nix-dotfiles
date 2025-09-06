@@ -7,8 +7,6 @@
 
   programs.home-manager.enable = true;
 
-  home-manager.backupFileExtension = "bak";
-
   imports = [
     ../../modules/home/base.nix
     ../../modules/home/hyprland.nix
