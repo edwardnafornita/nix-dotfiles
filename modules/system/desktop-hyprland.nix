@@ -9,11 +9,36 @@
   };
 
   environment.systemPackages = with pkgs; [
-    waybar wofi kitty
+    vesktop
+    waybar
+    wofi
+    kitty
     swaynotificationcenter
-    grim slurp swappy wl-clipboard
-    brightnessctl pavucontrol
+    
+    thunar
+    thunar-archive-plugin
+    gvfs
+    udisks2
+
+    grim
+    slurp
+    swappy
+    wl-clipboard
+    
+    btop
+    fastfetch
+
+    noto-fonts
+    noto-fonts-emoji
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    papirus-icon-theme
+    adwaita-qt
+
+    brightnessctl
+    pavucontrol
     networkmanagerapplet
+
+    lxqt-policykit
   ];
 }
 

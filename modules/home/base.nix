@@ -4,11 +4,10 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    fastfetch zellij starship
+    fastfetch starship
   ];
 
   programs.starship.enable = true;
-
   programs.fish.enable = true;
   
   programs.kitty = {
