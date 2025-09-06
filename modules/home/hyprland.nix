@@ -6,7 +6,8 @@
     settings = {
       "$mod" = "SUPER";
       bind = [
-        "$mod, Return, exec, kitty"
+        "$mod, B, exec, firefox"
+        "$mod, T, exec, kitty"
 	"$mod, D, exec, wofi --show drun"
 	"$mod, Q, killactive"
       ];
