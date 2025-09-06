@@ -9,9 +9,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    waybar wofi alacritty
+    waybar wofi kitty
+    swaynotificationcenter
     grim slurp swappy wl-clipboard
-    brightnessctl pavucontrol mako
+    brightnessctl pavucontrol
     networkmanagerapplet
   ];
 }

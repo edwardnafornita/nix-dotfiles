@@ -8,5 +8,17 @@
   ];
 
   programs.starship.enable = true;
+
+  programs.fish.enable = true;
+  
+  programs.kitty = {
+    enable = true;
+    theme = "Catpuccin-Mocha";
+    font = { name = "JetBrainsMono Nerd Font"; size = 11; };
+    settings = {
+      enable_audio_bell = "no";
+      confirm_os_window_close = "0";
+    };
+  };
 }
 
