@@ -15,7 +15,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  services.wireplumber.enable = true;
 
   environment.systemPackages = with pkgs; [
     curl
