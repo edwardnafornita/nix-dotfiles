@@ -46,7 +46,7 @@
     pavucontrol
     networkmanagerapplet
 
-    lxqt-policykit
+    lxqt.lxqt-policykit
   ];
 }
 
