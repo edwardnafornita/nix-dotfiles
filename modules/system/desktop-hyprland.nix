@@ -11,6 +11,13 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-emoji
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+  ];
+
   environment.systemPackages = with pkgs; [
     vesktop
     waybar
@@ -32,9 +39,6 @@
     btop
     fastfetch
 
-    noto-fonts
-    noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
     papirus-icon-theme
     adwaita-qt
 
