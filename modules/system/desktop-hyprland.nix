@@ -8,6 +8,9 @@
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   environment.systemPackages = with pkgs; [
     vesktop
     waybar
@@ -15,10 +18,11 @@
     kitty
     swaynotificationcenter
     
-    thunar
-    thunar-archive-plugin
+    xfce.thunar
+    xfce.thunar-archive-plugin
     gvfs
     udisks2
+    xarchiver
 
     grim
     slurp

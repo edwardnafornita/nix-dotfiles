@@ -12,7 +12,7 @@
   
   programs.kitty = {
     enable = true;
-    theme = "Catppuccin-Mocha";
+    themeFile = "${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Mocha.conf";
     font = { name = "JetBrainsMono Nerd Font"; size = 11; };
     settings = {
       enable_audio_bell = "no";
