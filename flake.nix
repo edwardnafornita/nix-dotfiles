@@ -15,8 +15,15 @@
 
     myHardware = ./hardware-configuration.nix;
     myBootLoader = ./boot.nix;
+    myGPU = ./gpu.nix;
+    myUser = ./user.nix;
     base = { ... }: {
-      imports = [ myHardware myBootLoader ];
+      imports = [
+        myHardware
+	myBootLoader
+	myGPU
+	myUser
+      ];
       networking.hostName = "nixos";
       system.stateVersion = "25.05";
     };
@@ -26,6 +33,7 @@
         inherit system;
         modules = [
           base
+	  { nixpkgs.overlays = [ hydenix.overlays.default ]; }
           hydenix.nixosModules.default
         ];
       };
