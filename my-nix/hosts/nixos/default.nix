@@ -15,7 +15,6 @@
     systemd-boot.extraEntries."windows.conf" = ''
       title Windows
       efi /EFI/Microsoft/Boot/bootmgfw.efi
-      device PARTUUID="e335c2e3-9ef6-4b37-9376-52e7c0c0bb39"
     '';
   };
 

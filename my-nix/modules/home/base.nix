@@ -8,7 +8,17 @@
   ];
 
   programs.starship.enable = true;
-  programs.fish.enable = true;
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      if status is-interactive
+        if test (tty) = "/dev/tty1" -a -z "$WAYLAND_DISPLAY"
+	        exec Hyprland
+	      end
+      end
+    '';
+  };
   
   programs.kitty = {
     enable = true;
