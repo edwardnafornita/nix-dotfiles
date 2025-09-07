@@ -1,5 +1,5 @@
 {
-  description = "Edward's NixOS + Home Manager";
+  description = "Modular NixOS with profiles";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,27 +7,49 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
+
+    mk = modules: hmMods:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = modules ++ [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "bak";
+
+            home-manager.users.edward = { ... }: {
+              imports = [ ./users/edward/home.nix ] ++ hmMods;
+            };
+          }
+        ];
+      };
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
+      nixos-programming = mk
+        [
+          ./hosts/nixos
+          ./profiles/programming.nix
+        ]
+        [
+          ./hm-profiles/base.nix
+          ./hm-profiles/desktop.nix
+          ./hm-profiles/programming.nix
+        ];
 
-	modules = [
-	  ./hosts/nixos
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.backupFileExtension = "bak";
-	    home-manager.users.edward = import ./users/edward/home.nix;
-	    _module.args.inputs = inputs;
-	  }
-	];
-      };
+      nixos-gaming = mk
+        [
+          ./hosts/nixos
+          ./profiles/gaming.nix
+        ]
+        [
+          ./hm-profiles/base.nix
+          ./hm-profiles/desktop.nix
+          ./hm-profiles/gaming.nix
+        ];
     };
   };
 }
