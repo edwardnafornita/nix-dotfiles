@@ -14,8 +14,9 @@
     lib = nixpkgs.lib;
 
     myHardware = ./hardware-configuration.nix;
+    myBootLoader = ./boot.nix;
     base = { ... }: {
-      imports = [ myHardware ];
+      imports = [ myHardware myBootLoader ];
       networking.hostName = "nixos";
       system.stateVersion = "25.05";
     };
