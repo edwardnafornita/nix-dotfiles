@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hydenix.url  = "path:../nix/hydenix";
-    jakoolit.url = "path:../nix/NixOS-Hyprland";
-    zaneyos.url  = "path:../nix/zaneyos";
+    hydenix.url  = "github:richen604/hydenix";
+    jakoolit.url = "github:JaKooLit/NixOS-Hyprland";
+    zaneyos.url  = "gitlab:Zaney/zaneyos";
   };
 
   outputs = { self, nixpkgs, hydenix, jakoolit, zaneyos, ... }:
